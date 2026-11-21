@@ -1,0 +1,21 @@
+{
+  "name": "niexia-investment",
+  "interface": {
+    "displayName": "Personal Investment OS"
+  },
+  "plugins": [
+    {
+      "name": "investment-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Finance",
+      "version": "0.1.0"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "investment-skills",
+  "version": "0.1.0",
+  "description": "Value investing, growth, ETF and portfolio-review skills with an evidence-first memo contract",
+  "author": {
+    "name": "niexia",
+    "url": "https://github.com/niexia"
+  },
+  "homepage": "https://github.com/niexia/investment-skills",
+  "repository": "https://github.com/niexia/investment-skills",
+  "keywords": [
+    "agent-skills",
+    "investment",
+    "value-investing",
+    "stocks",
+    "hong-kong",
+    "us-stocks"
+  ]
+}

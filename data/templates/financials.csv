@@ -1,0 +1,7 @@
+period,ticker,market,currency,unit,revenue,gross_profit,operating_income,ebit,net_income,net_income_attributable,eps_diluted,ocf,capex,fcf,cash_and_equivalents,total_debt,equity,minority_interest,shares_diluted,source,page,confidence
+# 说明：
+# period 用 FY2025 / 2025Q3 / 2025H1，并另起一列或在事实卡里注明起止日期
+# unit 统一为 millions（百万），并在事实卡写明原始单位
+# 缺失值填 NA，不要留空、不要填 0
+# confidence: high / medium / low
+# source 写文件名或链接；page 写页码或表格名

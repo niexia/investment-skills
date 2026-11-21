@@ -1,0 +1,15 @@
+{
+  "name": "niexia-investment",
+  "description": "Personal investment research skills for US and Hong Kong listed companies.",
+  "owner": {
+    "name": "niexia"
+  },
+  "plugins": [
+    {
+      "name": "investment-skills",
+      "source": "./",
+      "description": "Value investing, growth, ETF and portfolio-review skills with an evidence-first memo contract",
+      "version": "0.1.0"
+    }
+  ]
+}

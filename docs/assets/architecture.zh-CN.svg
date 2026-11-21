@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="940" viewBox="0 0 1000 940" role="img" aria-labelledby="title desc">
+  <title id="title">Personal Investment OS 架构</title>
+  <desc id="desc">问题进入 company-research，依次经过预筛、护城河、财务、成长、估值、论点六步，产出备忘录、事实卡与论点，下次财报用来检验。知识库与数据层贯穿每一步。</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#b45309"/>
+    </marker>
+  </defs>
+
+  <style>
+    .band { fill: #ffffff; stroke: #d1d5db; stroke-width: 1; }
+    .band-soft { fill: #f9fafb; stroke: #e5e7eb; stroke-width: 1; }
+    .chip { fill: #f0f7f4; stroke: #b7d8cc; stroke-width: 1; }
+    .chip-conditional { fill: #fafafa; stroke: #c7c9ce; stroke-width: 1; stroke-dasharray: 4 3; }
+    .card { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .label { font: 600 10px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #6b7280; letter-spacing: 1.4px; }
+    .h { font: 600 14px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #111827; }
+    .skill { font: 600 11.5px/1 ui-monospace, SFMono-Regular, Menlo, monospace; fill: #1f6f5c; }
+    .sub { font: 400 10.5px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #6b7280; }
+    .path { font: 400 9.5px/1 ui-monospace, SFMono-Regular, Menlo, monospace; fill: #94a3b8; }
+    .note { font: 400 11px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #9ca3af; }
+    .amber { fill: #fff7ed; stroke: #f3d9b1; }
+    .amber-text { font: 500 12.5px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; fill: #92400e; }
+    .flow { stroke: #6b7280; stroke-width: 1.2; fill: none; }
+    .flow-soft { stroke: #b6bcc6; stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; }
+    .loop { stroke: #b45309; stroke-width: 1.1; fill: none; stroke-dasharray: 5 4; }
+  </style>
+
+  <rect x="0" y="0" width="1000" height="940" rx="16" fill="#ffffff"/>
+
+  <!-- 输入 -->
+  <rect class="band-soft" x="60" y="36" width="880" height="76" rx="12"/>
+  <text class="label" x="80" y="62">输入</text>
+  <text class="h" x="80" y="90">公司 · 代码 · 问题</text>
+  <text class="note" x="920" y="90" text-anchor="end">一次一个问题</text>
+
+  <path class="flow" d="M 500 112 L 500 150" marker-end="url(#arrow)"/>
+
+  <!-- 流水线 -->
+  <rect class="band" x="60" y="156" width="880" height="232" rx="12"/>
+  <text class="label" x="80" y="184">研究流水线</text>
+  <text class="note" x="920" y="184" text-anchor="end">由 company-research 编排</text>
+
+  <!-- 六个步骤 -->
+  <rect class="chip" x="68" y="200" width="122" height="140" rx="10"/>
+  <text class="note" x="80" y="222">01</text>
+  <text class="skill" x="80" y="244">预筛</text>
+  <text class="sub" x="80" y="264">红线与证据分级</text>
+  <text class="sub" x="80" y="278">不合格直接停止</text>
+
+  <rect class="chip" x="215" y="200" width="122" height="140" rx="10"/>
+  <text class="note" x="227" y="222">02</text>
+  <text class="skill" x="227" y="244">moat-analysis</text>
+  <text class="sub" x="227" y="264">生意本质与</text>
+  <text class="sub" x="227" y="278">护城河趋势</text>
+
+  <rect class="chip" x="362" y="200" width="122" height="140" rx="10"/>
+  <text class="note" x="374" y="222">03</text>
+  <text class="skill" x="374" y="244">financial-</text>
+  <text class="skill" x="374" y="258">analysis</text>
+  <text class="sub" x="374" y="278">财报质量、ROIC、</text>
+  <text class="sub" x="374" y="292">现金含量</text>
+
+  <rect class="chip-conditional" x="509" y="200" width="122" height="140" rx="10"/>
+  <text class="note" x="521" y="222">04</text>
+  <text class="skill" x="521" y="244">growth-</text>
+  <text class="skill" x="521" y="258">analysis</text>
+  <text class="sub" x="521" y="278">增长来源与</text>
+  <text class="sub" x="521" y="292">持续性</text>
+  <text class="note" x="521" y="310">仅高增长时触发</text>
+
+  <rect class="chip" x="656" y="200" width="122" height="140" rx="10"/>
+  <text class="note" x="668" y="222">05</text>
+  <text class="skill" x="668" y="244">intrinsic-</text>
+  <text class="skill" x="668" y="258">valuation</text>
+  <text class="sub" x="668" y="278">估值区间、</text>
+  <text class="sub" x="668" y="292">反向 DCF</text>
+
+  <rect class="chip" x="803" y="200" width="122" height="140" rx="10"/>
+  <text class="note" x="815" y="222">06</text>
+  <text class="skill" x="815" y="244">investment-</text>
+  <text class="skill" x="815" y="258">thesis</text>
+  <text class="sub" x="815" y="278">支柱、反方、</text>
+  <text class="sub" x="815" y="292">证伪条件</text>
+
+  <!-- 步骤之间 -->
+  <path class="flow" d="M 192 270 L 210 270" marker-end="url(#arrow)"/>
+  <path class="flow" d="M 339 270 L 357 270" marker-end="url(#arrow)"/>
+  <path class="flow" d="M 486 270 L 504 270" marker-end="url(#arrow)"/>
+  <path class="flow" d="M 633 270 L 651 270" marker-end="url(#arrow)"/>
+  <path class="flow" d="M 780 270 L 798 270" marker-end="url(#arrow)"/>
+
+  <text class="note" x="500" y="368" text-anchor="middle">每一步把具体产物交给下一步：事实 → 假设 → 判断</text>
+
+  <path class="flow" d="M 500 388 L 500 424" marker-end="url(#arrow)"/>
+
+  <!-- 产出 -->
+  <rect class="band" x="60" y="428" width="880" height="196" rx="12"/>
+  <text class="label" x="80" y="456">产出</text>
+  <text class="note" x="920" y="456" text-anchor="end">每次三份文件</text>
+
+  <rect class="card" x="76" y="472" width="268" height="136" rx="10"/>
+  <text class="h" x="94" y="500">备忘录</text>
+  <text class="path" x="94" y="520">reports/company-research/</text>
+  <text class="sub" x="94" y="546">估值区间、假设、</text>
+  <text class="sub" x="94" y="562">反方论证、证伪条件，</text>
+  <text class="sub" x="94" y="578">每个数字都有来源。</text>
+
+  <rect class="card" x="362" y="472" width="268" height="136" rx="10"/>
+  <text class="h" x="380" y="500">事实卡</text>
+  <text class="path" x="380" y="520">data/companies/&lt;ticker&gt;.md</text>
+  <text class="sub" x="380" y="546">5–10 年财务数据，</text>
+  <text class="sub" x="380" y="562">带报告期、币种、单位</text>
+  <text class="sub" x="380" y="578">与来源，下次复用。</text>
+
+  <rect class="card" x="648" y="472" width="268" height="136" rx="10"/>
+  <text class="h" x="666" y="500">论点</text>
+  <text class="path" x="666" y="520">reports/theses/</text>
+  <text class="sub" x="666" y="546">支柱、市场预期、</text>
+  <text class="sub" x="666" y="562">失败路径、可观测阈值。</text>
+  <text class="sub" x="666" y="578">带日期，不覆盖。</text>
+
+  <path class="flow" d="M 500 624 L 500 662" marker-end="url(#arrow)"/>
+
+  <!-- 反馈 -->
+  <rect class="amber" x="60" y="666" width="880" height="64" rx="12"/>
+  <text class="label" x="80" y="690" fill="#b45309">下次财报</text>
+  <text class="amber-text" x="80" y="712">用新数据检验证伪条件 → 更新论点，旧版本保留</text>
+
+  <path class="loop" d="M 940 698 L 966 698 L 966 540 L 920 540" marker-end="url(#arrow-amber)"/>
+
+  <!-- 证据层 -->
+  <rect class="band-soft" x="60" y="768" width="880" height="132" rx="12"/>
+  <text class="label" x="80" y="796">证据层</text>
+  <text class="note" x="920" y="796" text-anchor="end">贯穿以上每一步</text>
+
+  <rect class="card" x="76" y="810" width="414" height="74" rx="8"/>
+  <text class="skill" x="92" y="832" fill="#334155">knowledge/</text>
+  <text class="sub" x="92" y="852">投资框架 · 证据规则</text>
+  <text class="sub" x="92" y="868">检查清单 · 港美股差异</text>
+
+  <rect class="card" x="510" y="810" width="414" height="74" rx="8"/>
+  <text class="skill" x="526" y="832" fill="#334155">data/</text>
+  <text class="sub" x="526" y="852">EDGAR · HKEXnews · IR · 行情</text>
+  <text class="sub" x="526" y="868">汇率 · 指数编制</text>
+
+  <!-- 左侧导轨 -->
+  <path class="flow-soft" d="M 40 790 L 40 270 L 56 270" marker-end="url(#arrow)"/>
+  <text class="note" x="26" y="530" transform="rotate(-90 26 530)" text-anchor="middle">规则与数据</text>
+</svg>

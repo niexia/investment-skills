@@ -1,0 +1,36 @@
+.DS_Store
+Thumbs.db
+
+# 本地环境
+.env
+.env.*
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+
+# 本地 Agent 发现链接（只提交 .agents/skills，见 docs/research/layout-review.md）
+.claude/skills
+.cursor/skills
+.gemini/skills
+.github/skills
+.devin/skills
+
+# npx skills 在仓库内运行时会生成
+skills-lock.json
+
+# 打包产物
+*.tgz
+
+# 临时文件
+*.tmp
+*.bak
+*.bak.*
+.tmp/
+
+# 大体量原始文件（财报 PDF 等），保留链接即可
+data/raw/
+*.pdf
+
+# 本地价格快照默认不入库（如需留存请去掉此行）
+data/market/*.csv

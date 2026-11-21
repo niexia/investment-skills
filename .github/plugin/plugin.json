@@ -1,0 +1,8 @@
+{
+  "name": "investment-skills",
+  "description": "Eight composable agent skills for fundamental research on US and Hong Kong listed companies: filings and financial quality, business economics and moat, growth, valuation ranges, falsifiable theses, ETF analysis and portfolio review.",
+  "version": "0.1.0",
+  "author": {
+    "name": "niexia"
+  }
+}

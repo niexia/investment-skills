@@ -1,0 +1,44 @@
+{
+  "name": "investment-skills",
+  "version": "0.1.0",
+  "description": "Personal investment research skills for US/HK listed companies: value investing, growth, ETFs and portfolio review, as Agent Skills.",
+  "type": "module",
+  "bin": {
+    "investment-skills": "bin/cli.mjs"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "knowledge",
+    "data",
+    "portfolio",
+    "reports/_template",
+    "reports/README.md",
+    "docs",
+    "scripts",
+    "AGENTS.md",
+    "README.md",
+    "README.zh-CN.md",
+    "CLAUDE.md",
+    "GEMINI.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent-skills",
+    "investment",
+    "value-investing",
+    "stocks",
+    "hong-kong",
+    "us-stocks"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niexia/investment-skills.git"
+  },
+  "scripts": {
+    "check": "python3 scripts/check_skills.py --strict",
+    "install:agents": "node bin/cli.mjs install"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "investment-skills",
+  "version": "0.1.0",
+  "description": "Value investing, growth, ETF and portfolio-review skills with an evidence-first memo contract",
+  "author": {
+    "name": "niexia",
+    "url": "https://github.com/niexia"
+  },
+  "homepage": "https://github.com/niexia/investment-skills",
+  "repository": "https://github.com/niexia/investment-skills",
+  "keywords": [
+    "agent-skills",
+    "investment",
+    "value-investing",
+    "stocks",
+    "hong-kong",
+    "us-stocks"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Personal Investment OS",
+    "shortDescription": "Equity research skills for US/HK stocks",
+    "longDescription": "Eight composable agent skills for fundamental research on US and Hong Kong listed companies: filings and financial quality, business economics and moat, growth, valuation ranges with reverse DCF, falsifiable theses, ETF analysis and portfolio review. Output is a sourced investment memo, never a buy/sell signal.",
+    "developerName": "niexia",
+    "category": "Finance",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://github.com/niexia/investment-skills"
+  }
+}
