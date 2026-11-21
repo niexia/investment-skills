@@ -54,16 +54,16 @@
 
   <rect class="chip" x="215" y="200" width="122" height="140" rx="10"/>
   <text class="note" x="227" y="222">02</text>
-  <text class="skill" x="227" y="244">moat-analysis</text>
-  <text class="sub" x="227" y="264">Business,</text>
-  <text class="sub" x="227" y="278">moat trend</text>
+  <text class="skill" x="227" y="244">financial-</text>
+  <text class="skill" x="227" y="258">analysis</text>
+  <text class="sub" x="227" y="278">Filings, ROIC,</text>
+  <text class="sub" x="227" y="292">cash conversion</text>
 
   <rect class="chip" x="362" y="200" width="122" height="140" rx="10"/>
   <text class="note" x="374" y="222">03</text>
-  <text class="skill" x="374" y="244">financial-</text>
-  <text class="skill" x="374" y="258">analysis</text>
-  <text class="sub" x="374" y="278">Filings, ROIC,</text>
-  <text class="sub" x="374" y="292">cash conversion</text>
+  <text class="skill" x="374" y="244">moat-analysis</text>
+  <text class="sub" x="374" y="264">Business,</text>
+  <text class="sub" x="374" y="278">moat trend</text>
 
   <rect class="chip-conditional" x="509" y="200" width="122" height="140" rx="10"/>
   <text class="note" x="521" y="222">04</text>
@@ -94,14 +94,14 @@
   <path class="flow" d="M 633 270 L 651 270" marker-end="url(#arrow)"/>
   <path class="flow" d="M 780 270 L 798 270" marker-end="url(#arrow)"/>
 
-  <text class="note" x="500" y="368" text-anchor="middle">each step hands one artifact to the next: facts, then assumptions, then a verdict</text>
+  <text class="note" x="500" y="368" text-anchor="middle">build the fact base first; focused analyses use their own report templates</text>
 
   <path class="flow" d="M 500 388 L 500 424" marker-end="url(#arrow)"/>
 
   <!-- outputs -->
   <rect class="band" x="60" y="428" width="880" height="196" rx="12"/>
-  <text class="label" x="80" y="456">OUTPUTS</text>
-  <text class="note" x="920" y="456" text-anchor="end">three files, every run</text>
+  <text class="label" x="80" y="456">CORE OUTPUTS</text>
+  <text class="note" x="920" y="456" text-anchor="end">full company research</text>
 
   <rect class="card" x="76" y="472" width="268" height="136" rx="10"/>
   <text class="h" x="94" y="500">Memo</text>

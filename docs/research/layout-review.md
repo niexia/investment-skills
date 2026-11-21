@@ -24,7 +24,7 @@
 | Agent | 项目级根目录 | 是否多根 |
 | --- | --- | --- |
 | DSH | `.dsh/skills`、`.agents/skills` | 是（2 个），但本仓库不建 `.dsh/skills` |
-| Codex CLI | `.agents/skills` | 否 |
+| Codex（桌面端 / CLI / IDE 扩展） | `.agents/skills` | 否 |
 | Cursor | `.agents/skills` 或 `.cursor/skills` | 否（二选一） |
 | Gemini CLI | `.agents/skills` 或 `.gemini/skills` | 否（二选一） |
 | **Copilot CLI** | `.github/skills`、`.claude/skills`、`.agents/skills` | **是（3 个）** |

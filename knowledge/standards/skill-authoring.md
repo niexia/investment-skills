@@ -17,7 +17,7 @@ CLAUDE.md / GEMINI.md                          ← 两行指针，@AGENTS.md
 | 运行时 | 项目级路径 | 用户级路径 | 扫描深度 |
 | --- | --- | --- | --- |
 | DSH | `.dsh/skills`（优先）、`.agents/skills` | `~/.dsh/skills`、`~/.agents/skills` | 一层 |
-| Codex CLI | `.agents/skills` | `~/.agents/skills` | 一层 |
+| Codex（桌面端 / CLI / IDE 扩展） | `.agents/skills` | `~/.agents/skills` | 一层 |
 | Cursor | `.agents/skills`、`.cursor/skills` | `~/.agents/skills`、`~/.cursor/skills` | 一层 |
 | Gemini CLI | `.agents/skills`、`.gemini/skills` | `~/.agents/skills` | 一层 |
 | Copilot CLI | `.agents/skills`、`.claude/skills`、`.github/skills` | `~/.copilot/skills` | 一层 |

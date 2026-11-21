@@ -124,6 +124,41 @@ function targetPath(name) {
   return path.join(os.homedir(), ...parts);
 }
 
+function pointsTo(link, target) {
+  try {
+    return fs.realpathSync(link) === fs.realpathSync(target);
+  } catch {
+    return false;
+  }
+}
+
+function backupPath(dest) {
+  let backup = `${dest}.bak.${Date.now()}`;
+  let suffix = 1;
+  while (lstatMaybe(backup)) {
+    backup = `${dest}.bak.${Date.now()}.${suffix++}`;
+  }
+  return backup;
+}
+
+function lstatMaybe(target) {
+  try {
+    return fs.lstatSync(target);
+  } catch {
+    return null;
+  }
+}
+
+function backUp(dest, dryRun) {
+  const backup = backupPath(dest);
+  if (dryRun) log(`dry-run: back up ${dest} -> ${backup}`);
+  else {
+    fs.renameSync(dest, backup);
+    log(`backed up ${dest} -> ${backup}`);
+  }
+  return backup;
+}
+
 function resolveTargets(opts) {
   if (opts.targets) {
     const names = opts.targets.split(',').map((s) => s.trim()).filter(Boolean);
@@ -143,30 +178,23 @@ function ensureDir(dir, dryRun) {
   if (!dryRun) fs.mkdirSync(dir, { recursive: true });
 }
 
-function removePath(target, dryRun) {
-  if (dryRun) return;
-  const stat = fs.lstatSync(target);
-  if (stat.isSymbolicLink() || stat.isFile()) fs.unlinkSync(target);
-  else fs.rmSync(target, { recursive: true, force: true });
-}
-
 function makeLink(src, dest, opts) {
-  const stat = (() => {
-    try {
-      return fs.lstatSync(dest);
-    } catch {
-      return null;
-    }
-  })();
+  const stat = lstatMaybe(dest);
   if (stat) {
-    if (!stat.isSymbolicLink()) {
-      if (!opts.force) {
-        log(`warn  skip ${dest} (exists and is not a symlink; use --force)`);
-        return false;
-      }
-      if (!opts.dryRun) fs.renameSync(dest, `${dest}.bak.${Date.now()}`);
+    const sameLink = stat.isSymbolicLink() && pointsTo(dest, src);
+    if (sameLink && !opts.copy) return true;
+    if (!sameLink && !opts.force) {
+      const reason = stat.isSymbolicLink()
+        ? 'symlink does not point to this repository'
+        : 'exists and is not a symlink';
+      log(`warn  skip ${dest} (${reason}; use --force)`);
+      return false;
     }
-    if (!opts.dryRun) fs.unlinkSync(dest);
+    if (opts.force && !sameLink) {
+      backUp(dest, opts.dryRun);
+    } else if (sameLink && !opts.dryRun) {
+      fs.unlinkSync(dest);
+    }
   }
   if (opts.copy) {
     if (opts.dryRun) return true;
@@ -194,7 +222,7 @@ function linkInto(workspace, dir, names, opts) {
     if (opts.uninstall) {
       if (!stat) continue;
       const ours =
-        stat.isSymbolicLink() ||
+        (stat.isSymbolicLink() && pointsTo(dest, path.join(workspace, 'skills', name))) ||
         (stat.isDirectory() && readSkillName(path.join(dest, 'SKILL.md')) === name);
       if (ours) {
         if (!opts.dryRun) fs.rmSync(dest, { recursive: true, force: true });
@@ -219,14 +247,18 @@ function installProject(workspace, names, opts) {
     const dest = path.join(dir, name);
     const rel = path.join('..', '..', 'skills', name);
     const stat = fs.existsSync(dest) ? fs.lstatSync(dest) : null;
-    if (stat?.isSymbolicLink()) {
-      if (!opts.dryRun) fs.unlinkSync(dest);
-    } else if (stat) {
-      if (!opts.force) {
-        log(`warn  skip ${dest} (exists; use --force)`);
+    if (stat) {
+      const sameLink = stat.isSymbolicLink() && pointsTo(dest, src);
+      if (sameLink) {
+        done += 1;
         continue;
       }
-      removePath(dest, opts.dryRun);
+      if (!opts.force) {
+        const reason = stat.isSymbolicLink() ? 'link points elsewhere' : 'exists';
+        log(`warn  skip ${dest} (${reason}; use --force)`);
+        continue;
+      }
+      backUp(dest, opts.dryRun);
     }
     try {
       if (!opts.dryRun) {
@@ -321,9 +353,9 @@ Options:
   --copy               copy files instead of symlinking
   --detected           only agent directories already present
   --target a,b         agents,claude,copilot,codex,dsh,cursor,gemini
-  --force              back up an existing real directory
+  --force              back up and replace an existing directory or unrelated link
   --from <dir>         workspace to install from (default: cwd)
-  --uninstall          remove links created by this tool`);
+  --uninstall          remove recognized links or skill copies`);
 }
 
 function main() {

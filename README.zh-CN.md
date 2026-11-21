@@ -47,7 +47,7 @@ npx github:niexia/investment-skills install
 
 每一步交给下一步一个具体产物——标准化财务基底、护城河结论、增长假设——所以备忘录是逐步组装的，不是一次生成的。知识库与数据层贯穿每一步，而不是单独的检索环节。
 
-每次研究留下三个文件：备忘录、公司事实卡、带日期的论点。下次财报拿论点里的证伪条件逐条检验，旧版本保留。
+每次完整公司研究留下三个核心文件：备忘录、公司事实卡、带日期的论点。单独财报分析和 ETF 分析使用各自的报告模板。下次财报拿论点里的证伪条件逐条检验，旧版本保留。
 
 ## 安装
 
@@ -63,12 +63,14 @@ Agent Skills 生态的安装器同样可用：
 npx skills add niexia/investment-skills
 ```
 
-**Claude Code / Codex / Copilot CLI / Antigravity**——从插件市场安装：
+**Claude Code / Codex / Copilot CLI **——从插件市场安装：
 
 ```bash
 claude plugin marketplace add niexia/investment-skills
 claude plugin install investment-skills@niexia-investment
 ```
+
+其他插件市场使用各自命令，见[安装文档](docs/install.md)。
 
 **不安装**——克隆仓库，在仓库目录里启动 Agent，skill 已就位。
 
@@ -89,7 +91,7 @@ skills/          八个 skill，唯一源码
 knowledge/       投资框架、证据规则、检查清单、港美股规则
 data/            数据源登记、公司事实卡、模板
 portfolio/       持仓与配置政策
-reports/         备忘录、论点、组合复盘
+reports/         备忘录、财报分析、ETF 分析、论点、组合复盘
 docs/            安装、路线图、开源项目调研
 ```
 
@@ -109,6 +111,7 @@ docs/            安装、路线图、开源项目调研
 - [路线图](docs/roadmap.md)
 - [开源项目调研](docs/research/opensource-review.md)
 - [备忘录模板](reports/_template/company-research.md)
+- [报告模板目录](reports/README.md)
 
 ## 免责声明
 

@@ -9,7 +9,7 @@
 | Agent | 项目级目录 | 用户级目录 | 本仓库零安装 |
 | --- | --- | --- | --- |
 | Claude Code | `.claude/skills/` | `~/.claude/skills/` | 一条命令（见第 1 节） |
-| OpenAI Codex CLI | `.agents/skills/` | `~/.agents/skills/` | ✅ |
+| Codex（桌面端 / CLI / IDE 扩展） | `.agents/skills/` | `~/.agents/skills/` | ✅ |
 | Cursor | `.agents/skills/` 或 `.cursor/skills/` | `~/.agents/skills/` 或 `~/.cursor/skills/` | ✅ |
 | Gemini CLI | `.agents/skills/` 或 `.gemini/skills/` | `~/.agents/skills/` 或 `~/.gemini/skills/` | ✅ |
 | Copilot CLI | `.agents/skills/`、`.claude/skills/`、`.github/skills/` | `~/.copilot/skills/` | ✅ |
@@ -47,7 +47,7 @@ npx investment-skills install --dry-run
 
 | 命令 | 作用 |
 | --- | --- |
-| `install` | 把 8 个 skill 链接到三个用户级目录 |
+| `install` | 把 8 个 skill 安装到三个用户级目录；本地克隆链接源码，从 npm / npx 包安装时复制文件 |
 | `init <dir>` | 生成完整工作区（skills + knowledge + data + reports + portfolio + AGENTS.md） |
 | `list` | 列出当前工作区的 skill |
 
@@ -80,7 +80,7 @@ npx investment-skills install --dry-run
 | `--dry-run` | 只打印会做什么 |
 | `--detected` | 只装到本机已存在的 Agent 目录 |
 | `--copy` | 复制而非链接（Windows / 不跟随符号链接） |
-| `--force` | 目标已存在真实目录时，备份后覆盖 |
+| `--force` | 目标已存在目录或非本仓库符号链接时，备份后覆盖；默认跳过此类目标 |
 | `--target codex,dsh` | 装到旧版目录（`~/.codex/skills`、`~/.dsh/skills`、`~/.cursor/skills`、`~/.gemini/skills`） |
 | `--uninstall` | 删除本脚本创建的链接 |
 

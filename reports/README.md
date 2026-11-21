@@ -12,11 +12,11 @@ reports/<类型>/<公司或主题>-<YYYYMMDD>.md
 
 | 目录 | 内容 | 产出 skill |
 | --- | --- | --- |
-| `company-research/` | 公司深度研究（13 节备忘录） | `company-research` |
-| `financial-analysis/` | 单独的财报分析 | `financial-analysis` |
-| `etf-analysis/` | ETF / 指数基金分析 | `etf-analysis` |
-| `theses/` | 投资论点（含 diff 与决策日志） | `investment-thesis` |
-| `portfolio-review/` | 组合复盘 | `portfolio-review` |
+| `company-research/` | 公司深度研究（13 节备忘录） | `company-research`；`_template/company-research.md` |
+| `financial-analysis/` | 单独的财报分析 | `financial-analysis`；`_template/financial-analysis.md` |
+| `etf-analysis/` | ETF / 指数基金分析 | `etf-analysis`；`_template/etf-analysis.md` |
+| `theses/` | 投资论点（含 diff 与决策日志） | `investment-thesis`；`_template/thesis.md` |
+| `portfolio-review/` | 组合复盘 | `portfolio-review`；`_template/portfolio-review.md` |
 
 ## 规则
 

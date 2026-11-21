@@ -5,6 +5,7 @@ Checks:
   * frontmatter exists and is closed
   * `name` and `description` present; name is kebab-case and matches the directory
   * required sections exist
+  * each documented report type has a starter template
   * `.agents/skills/<name>` is a symlink that resolves to `skills/<name>`
   * no orphan links that point into `skills/` but no longer resolve
 
@@ -255,6 +256,24 @@ def check_manifests() -> tuple[list[str], list[str]]:
 
 ARCH_EN = ROOT / "docs" / "assets" / "architecture.svg"
 ARCH_ZH = ROOT / "docs" / "assets" / "architecture.zh-CN.svg"
+REPORT_TEMPLATES = {
+    "company-research": "company-research.md",
+    "financial-analysis": "financial-analysis.md",
+    "etf-analysis": "etf-analysis.md",
+    "theses": "thesis.md",
+    "portfolio-review": "portfolio-review.md",
+}
+
+
+def check_report_templates() -> tuple[list[str], list[str]]:
+    """Every report type documented by the repository must have a starter template."""
+    errors: list[str] = []
+    templates_dir = ROOT / "reports" / "_template"
+    for report_type, template in REPORT_TEMPLATES.items():
+        path = templates_dir / template
+        if not path.is_file():
+            errors.append(f"missing report template for {report_type}: {path.relative_to(ROOT)}")
+    return errors, []
 
 
 def _diagram_shape(path: Path) -> tuple[int, int]:
@@ -321,6 +340,10 @@ def main() -> int:
     diagram_errors, diagram_warnings = check_diagrams()
     all_errors.extend(diagram_errors)
     all_warnings.extend(diagram_warnings)
+
+    template_errors, template_warnings = check_report_templates()
+    all_errors.extend(template_errors)
+    all_warnings.extend(template_warnings)
 
     if LINKS.is_dir():
         for link in sorted(LINKS.iterdir()):

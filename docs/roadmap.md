@@ -10,7 +10,7 @@
 
 - [x] 全局规则 `AGENTS.md`（边界、证据、计算、命名、禁止事项）
 - [x] 8 个 skill 的骨架与跨 Agent 发现：`skills/` 源码 + `.agents/skills` 单一项目级根目录
-- [x] 跨 Agent 安装：`npx skills` 与离线脚本（七个用户级根目录）
+- [x] 跨 Agent 安装：npm CLI、离线脚本与插件清单（默认三个用户级根目录，另可指定 Agent）
 - [x] Claude Code / Gemini CLI 入口：`CLAUDE.md`、`GEMINI.md` 指向 `AGENTS.md`
 - [x] 证据规范 `knowledge/standards/research-protocol.md`
 - [x] 输出契约 `knowledge/standards/output-contract.md`（13 节备忘录）

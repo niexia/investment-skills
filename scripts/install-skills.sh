@@ -127,7 +127,17 @@ for t in "${TARGETS[@]}"; do
 
     if [ -e "$dest" ] || [ -L "$dest" ]; then
       if [ -L "$dest" ]; then
-        : # replace our own or another link
+        existing_target="$(readlink "$dest")"
+        if [ "$existing_target" != "$src" ]; then
+          if [ "$FORCE" -eq 1 ]; then
+            backup="$dest.bak.$(date +%Y%m%d%H%M%S)"
+            run mv "$dest" "$backup"
+            log "backed up $dest -> $backup"
+          else
+            warn "skip $dest (symlink does not point to this repository; use --force)"
+            continue
+          fi
+        fi
       elif [ "$FORCE" -eq 1 ]; then
         backup="$dest.bak.$(date +%Y%m%d%H%M%S)"
         run mv "$dest" "$backup"

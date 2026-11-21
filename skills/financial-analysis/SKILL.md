@@ -88,7 +88,7 @@ ROIC = NOPAT / 平均投入资本
 
 ## 输出
 
-写入报告第 5 节，或独立成文 `reports/financial-analysis/<代码>-<YYYYMMDD>.md`，含：
+写入公司研究报告第 5 节；独立成文时从 `reports/_template/financial-analysis.md` 开始，保存到 `reports/financial-analysis/<代码>-<YYYYMMDD>.md`，含：
 
 1. 报告清单
 2. 三表摘要（5–10 年）

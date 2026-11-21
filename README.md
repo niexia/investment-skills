@@ -47,7 +47,7 @@ Each skill works on its own. `company-research` chains them into one memo.
 
 Each step hands a concrete artifact to the next — a normalized financial base, a moat verdict, growth assumptions — so the memo is assembled from evidence instead of generated in one pass. The knowledge base and the data layer feed every step rather than sitting in a separate retrieval stage.
 
-Every run leaves three files: the memo, the company fact card and a dated thesis. At the next earnings the thesis is tested against its own invalidation conditions, and the old version stays on disk.
+Each full company research run leaves three core files: the memo, the company fact card and a dated thesis. Focused financial and ETF analyses use their own report templates. At the next earnings the thesis is tested against its own invalidation conditions, and the old version stays on disk.
 
 ## Install
 
@@ -63,12 +63,14 @@ The Agent Skills CLI works too:
 npx skills add niexia/investment-skills
 ```
 
-**Claude Code / Codex / Copilot CLI / Antigravity** — from the plugin marketplace:
+**Claude Code / Codex / Copilot CLI** — from the plugin marketplace:
 
 ```bash
 claude plugin marketplace add niexia/investment-skills
 claude plugin install investment-skills@niexia-investment
 ```
+
+Other plugin marketplaces use their own commands; see [Installation](docs/install.md).
 
 **No install** — clone the repository and start your agent inside it; the skills are already discoverable.
 
@@ -89,7 +91,7 @@ skills/          eight skills — the only source
 knowledge/       investor frameworks, evidence rules, checklists, US/HK market rules
 data/            source registry, company fact cards, templates
 portfolio/       holdings and allocation policy
-reports/         memos, theses, portfolio reviews
+reports/         memos, financial analyses, ETF analyses, theses, portfolio reviews
 docs/            installation, roadmap, open-source review
 ```
 
@@ -109,6 +111,7 @@ The full contract: [`knowledge/standards/output-contract.md`](knowledge/standard
 - [Roadmap](docs/roadmap.md)
 - [Open-source review](docs/research/opensource-review.md)
 - [Memo template](reports/_template/company-research.md)
+- [Report templates](reports/README.md)
 
 ## Disclaimer
 
